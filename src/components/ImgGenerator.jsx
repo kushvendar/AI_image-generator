@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import default_image from '../Assets/default_image.svg'
+import { env } from 'process'
 
 
 
@@ -13,13 +14,14 @@ const ImgGenerator = () => {
     if(inputRef.current.value===""){
       return 0
     } 
+    const key=env(OPENAI_API_KEY)
     const response=await fetch(
       "https://api.openai.com/v1/images/generations", 
       {
         method:"POST",
         headers:{
           "Content-Type": "application/json",
-          Authorization: "Bearer  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",
+          Authorization: `Bearer ${key}` ,
           "User-Agent":"Chrome",
         },
         body: JSON.stringify({
