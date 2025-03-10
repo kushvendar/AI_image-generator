@@ -14,14 +14,14 @@ const ImgGenerator = () => {
     if(inputRef.current.value===""){
       return 0
     } 
-    const key=env(OPENAI_API_KEY)
+
     const response=await fetch(
       "https://api.openai.com/v1/images/generations", 
       {
         method:"POST",
         headers:{
           "Content-Type": "application/json",
-          Authorization: `Bearer ${key}` ,
+          Authorization: `Bearer ${env(OPENAI_API_KEY)}` ,
           "User-Agent":"Chrome",
         },
         body: JSON.stringify({
