@@ -1,10 +1,11 @@
 import React from 'react'
 
-
-export default function page() {
+const page = () => {
   return (
     <div>
-        hi there
+      signup route
     </div>
   )
 }
+
+export default page
